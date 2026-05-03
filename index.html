@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>規劃品質互動遊戲｜品質不是最後檢查</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app" class="app">
+    <section class="hero card">
+      <div>
+        <div class="eyebrow">Project Quality Management</div>
+        <h1>規劃品質救援任務</h1>
+        <p class="lead">你是「校園媒體專案」製作人。任務不是把內容做完，而是先定義：什麼叫做「做好」。</p>
+      </div>
+      <div class="mascot" aria-hidden="true">
+        <div class="face">品</div>
+        <div class="bubble">先規劃，少重工！</div>
+      </div>
+    </section>
+
+    <section class="card setup">
+      <h2>任務情境</h2>
+      <p>學校要推廣一場「AI 素養講座」。你的小組要在 7 天內完成一支 45 秒短影音，目標是讓大一學生願意報名。</p>
+      <div class="mission-grid">
+        <div><strong>交付成果</strong><span>45 秒短影音＋社群貼文</span></div>
+        <div><strong>目標受眾</strong><span>大一學生</span></div>
+        <div><strong>限制</strong><span>7 天、手機拍攝、可用 AI 協助</span></div>
+        <div><strong>真正挑戰</strong><span>不是炫技，而是符合需求</span></div>
+      </div>
+      <button class="primary" onclick="startGame()">開始任務</button>
+    </section>
+
+    <section id="game" class="hidden">
+      <div class="topbar card">
+        <div>
+          <div class="eyebrow">任務進度</div>
+          <h2 id="stageTitle">第 1 關</h2>
+        </div>
+        <div class="scorebox">
+          <div>品質分數 <strong id="score">0</strong></div>
+          <div>重工風險 <strong id="risk">50</strong>%</div>
+        </div>
+      </div>
+
+      <section class="card">
+        <div id="prompt"></div>
+        <div id="options" class="options"></div>
+        <div id="feedback" class="feedback hidden"></div>
+        <div class="actions">
+          <button id="nextBtn" class="primary hidden" onclick="nextStage()">下一關</button>
+        </div>
+      </section>
+
+      <section class="card concept">
+        <h3>本關學到的品質管理概念</h3>
+        <div id="conceptText"></div>
+      </section>
+    </section>
+
+    <section id="result" class="hidden card result">
+      <h2>任務完成：你的品質管理計畫</h2>
+      <div id="resultSummary"></div>
+      <button class="secondary" onclick="downloadPlan()">下載小組品質計畫</button>
+      <button class="primary" onclick="restartGame()">重新挑戰</button>
+    </section>
+
+    <section class="card teacher">
+      <h2>教師使用方式</h2>
+      <ol>
+        <li>先讓學生兩人一組，用 8–10 分鐘玩完。</li>
+        <li>請每組說明：哪一關最容易選錯？為什麼？</li>
+        <li>最後收斂三句話：品質是符合需求、品質要先規劃、品質要用指標與檢核表管理。</li>
+      </ol>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
