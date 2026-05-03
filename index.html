@@ -10,9 +10,9 @@
   <main id="app" class="app">
     <section class="hero card">
       <div>
-        <div class="eyebrow">Project Quality Management</div>
+        <div class="eyebrow">Project Quality Management × Communication Project</div>
         <h1>規劃品質救援任務</h1>
-        <p class="lead">你是「校園媒體專案」製作人。任務不是把內容做完，而是先定義：什麼叫做「做好」。</p>
+        <p class="lead">兩關互動案例：先從短影音暖身，再進入跨平台活動專案。重點不是把成果做完，而是先定義「什麼叫做做好」。</p>
       </div>
       <div class="mascot" aria-hidden="true">
         <div class="face">品</div>
@@ -21,13 +21,19 @@
     </section>
 
     <section class="card setup">
-      <h2>任務情境</h2>
-      <p>學校要推廣一場「AI 素養講座」。你的小組要在 7 天內完成一支 45 秒短影音，目標是讓大一學生願意報名。</p>
-      <div class="mission-grid">
-        <div><strong>交付成果</strong><span>45 秒短影音＋社群貼文</span></div>
-        <div><strong>目標受眾</strong><span>大一學生</span></div>
-        <div><strong>限制</strong><span>7 天、手機拍攝、可用 AI 協助</span></div>
-        <div><strong>真正挑戰</strong><span>不是炫技，而是符合需求</span></div>
+      <h2>任務說明</h2>
+      <p>你將扮演傳播管理專案製作人，完成兩個品質規劃任務。每一次選擇都會影響「品質分數」與「重工風險」。</p>
+      <div class="case-grid">
+        <div class="case-card">
+          <span class="tag">第一關｜暖身</span>
+          <h3>AI 素養短影音</h3>
+          <p>7 天內完成 45 秒短影音與社群貼文，目標是讓大一學生願意報名講座。</p>
+        </div>
+        <div class="case-card">
+          <span class="tag">第二關｜進階</span>
+          <h3>校園 AI 素養週</h3>
+          <p>四週內辦理一場跨單位活動，包含講座、攤位、社群宣傳、報名流程、現場動線與成果報告。</p>
+        </div>
       </div>
       <button class="primary" onclick="startGame()">開始任務</button>
     </section>
@@ -35,8 +41,8 @@
     <section id="game" class="hidden">
       <div class="topbar card">
         <div>
-          <div class="eyebrow">任務進度</div>
-          <h2 id="stageTitle">第 1 關</h2>
+          <div class="eyebrow" id="caseLabel">案例</div>
+          <h2 id="stageTitle">任務</h2>
         </div>
         <div class="scorebox">
           <div>品質分數 <strong id="score">0</strong></div>
@@ -49,29 +55,34 @@
         <div id="options" class="options"></div>
         <div id="feedback" class="feedback hidden"></div>
         <div class="actions">
-          <button id="nextBtn" class="primary hidden" onclick="nextStage()">下一關</button>
+          <button id="nextBtn" class="primary hidden" onclick="nextStage()">下一步</button>
         </div>
       </section>
 
       <section class="card concept">
-        <h3>本關學到的品質管理概念</h3>
+        <h3>本步驟學到的品質管理概念</h3>
         <div id="conceptText"></div>
       </section>
     </section>
 
+    <section id="betweenCases" class="hidden card result">
+      <h2>第一關完成：你已經理解「規劃品質」的基本骨架</h2>
+      <div id="caseOneSummary"></div>
+      <button class="primary" onclick="continueToCaseTwo()">進入第二關：複雜活動專案</button>
+    </section>
+
     <section id="result" class="hidden card result">
-      <h2>任務完成：你的品質管理計畫</h2>
+      <h2>任務完成：專案品質規劃總整理</h2>
       <div id="resultSummary"></div>
-      <button class="secondary" onclick="downloadPlan()">下載小組品質計畫</button>
       <button class="primary" onclick="restartGame()">重新挑戰</button>
     </section>
 
     <section class="card teacher">
       <h2>教師使用方式</h2>
       <ol>
-        <li>先讓學生兩人一組，用 8–10 分鐘玩完。</li>
-        <li>請每組說明：哪一關最容易選錯？為什麼？</li>
-        <li>最後收斂三句話：品質是符合需求、品質要先規劃、品質要用指標與檢核表管理。</li>
+        <li>第一關讓學生快速理解：需求、標準、指標、檢核。</li>
+        <li>第二關讓學生處理更真實的傳播管理情境：跨單位、活動現場、社群擴散、AI 內容與風險。</li>
+        <li>最後請學生把自己的專案寫成：品質標準、品質指標、檢核節點、風險與改善方法。</li>
       </ol>
     </section>
   </main>
