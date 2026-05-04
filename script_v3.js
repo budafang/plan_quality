@@ -9,13 +9,28 @@ const stages = [
     {text:"每個轉場是否都很炫",good:false,why:"炫技可能降低可讀性，不一定是品質底線。"}
   ]},
   {caseName:"第二關｜校園 AI 素養週", title:"2-1 活動品質流程圖", type:"flowchart", prompt:"你要辦一場校園 AI 素養週。請依照品質管理邏輯，安排活動流程的檢查順序。", concept:"活動與跨組協作專案適合用流程圖。流程圖能讓團隊看見品質問題可能發生在哪個階段，並把檢查點提前放入流程。", steps:["確認需求與利害關係人","設定品質標準與指標","設計活動流程與分工","審查內容、AI 使用與版權","測試報名系統與現場動線","活動彩排與風險檢查","正式執行與即時問題回報","活動後數據回收與改善報告"], distractors:["先做最炫主視覺","活動後才決定成功指標","出問題再補流程"], correct:["確認需求與利害關係人","設定品質標準與指標","設計活動流程與分工","審查內容、AI 使用與版權","測試報名系統與現場動線","活動彩排與風險檢查","正式執行與即時問題回報","活動後數據回收與改善報告"]},
-  {caseName:"第三關｜北車城市客廳", title:"3-1 北車商場品質規劃", type:"quiz", prompt:"新光三越接手台北車站商場後，希望打造『城市客廳』。你是品質規劃顧問，第一步最應該怎麼做？", concept:"北車案例能讓學生理解：品質不是把商場變高級，而是讓通勤、轉乘、購物、旅行等不同使用者，在複雜場域中感到清楚、順暢、安心，並在基本需求被滿足後感受到特色與驚喜。", options:[
+  {caseName:"第三關｜桃園機場服務品質", title:"3-1 機場服務品質規劃", type:"quiz", prompt:"桃園機場想改善旅客體驗，讓旅客覺得更清楚、順暢、安心，也能感受到台灣門戶特色。你是品質規劃顧問，第一步最應該怎麼做？", concept:"桃園機場案例能讓學生理解：服務品質不是只做亮點，而是先守住航班資訊、通關行李、動線、清潔、安全、多語導引等基本品質，再談驚喜體驗。", options:[
+    {title:"先做大型藝術裝置與網美打卡區",desc:"讓機場看起來更漂亮、更有話題。",score:-6,risk:18,type:"bad",fb:"這太快進入魅力品質。若航班資訊、通關等待、廁所清潔與導引沒有先穩定，旅客仍會不滿。"},
+    {title:"先盤點旅客旅程與痛點",desc:"從入境、出境、轉機、通關、行李、找路、候機逐一找品質需求。",score:30,risk:-22,type:"good",fb:"正確。規劃品質要先理解旅客旅程，再把清楚、快速、安心、可近用轉成品質標準。"},
+    {title:"只看商店營收與旅客消費金額",desc:"營收提升就代表機場品質變好。",score:-5,risk:16,type:"bad",fb:"商業表現重要，但機場首先是公共交通與國門服務場域，不能只用營收定義品質。"},
+    {title:"全面要求旅客下載 App 才能取得服務",desc:"所有航班、Wi-Fi、導覽、優惠都集中到 App。",score:2,risk:12,type:"ok",fb:"數位服務可以加分，但若變成強迫門檻，可能讓旅客更麻煩，甚至形成反轉品質。"}
+  ]},
+  {caseName:"第三關｜桃園機場服務品質", title:"3-2 機場品質指標檢核", type:"checklist", prompt:"請勾選最適合用來檢查『桃園機場服務品質』是否真的有改善的指標。", concept:"機場服務品質要從旅客旅程轉成可測量指標，例如資訊正確性、等待時間、導引清楚度、清潔安全、行李與通關效率。", items:[
+    {text:"航班、登機門、行李轉盤資訊是否即時且一致",good:true,why:"資訊正確是機場基本品質，錯誤會造成焦慮與重大不滿。"},
+    {text:"通關、安檢、行李等待時間是否被追蹤",good:true,why:"等待時間是一元品質，越短通常越滿意。"},
+    {text:"廁所清潔、標示與位置是否容易辨識",good:true,why:"清潔與可找到性是旅客基本需求。"},
+    {text:"多語導引與無障礙路線是否能讓旅客順利移動",good:true,why:"國際機場需要照顧外國旅客、長者、輪椅與行李族群。"},
+    {text:"候機區與商店排隊是否阻塞主要動線",good:true,why:"商業活動不能犧牲旅客通行與安全。"},
+    {text:"打卡裝置是否越大型越好",good:false,why:"大型裝置可能有話題，但若干擾動線，就不是品質改善。"},
+    {text:"是否強迫下載 App 才能使用 Wi-Fi 或查詢基本資訊",good:false,why:"強迫式科技服務可能增加負擔，形成反轉品質。"}
+  ]},
+  {caseName:"第四關｜北車城市客廳", title:"4-1 北車商場品質規劃", type:"quiz", prompt:"新光三越接手台北車站商場後，希望打造『城市客廳』。你是品質規劃顧問，第一步最應該怎麼做？", concept:"北車案例能讓學生理解：品質不是把商場變高級，而是讓通勤、轉乘、購物、旅行等不同使用者，在複雜場域中感到清楚、順暢、安心，並在基本需求被滿足後感受到特色與驚喜。", options:[
     {title:"先規劃高端品牌與大型藝術裝置",desc:"讓北車變得更像百貨公司。",score:-8,risk:20,type:"bad",fb:"這太快進入魅力品質與形象設計，忽略北車作為交通樞紐的基本品質。"},
     {title:"先盤點使用者與品質需求",desc:"通勤族、旅客、外國觀光客、店家、台鐵、新光三越各自需要什麼。",score:28,risk:-20,type:"good",fb:"正確。規劃品質要先理解利害關係人與使用情境，再把願景轉成品質標準。"},
     {title:"只用營收與來客數判斷品質",desc:"商場賺錢就代表品質好。",score:-5,risk:18,type:"bad",fb:"營收重要，但北車是公共交通樞紐，也要看動線、標示、安全、無障礙與公共服務品質。"},
     {title:"先導入 App 與會員推薦",desc:"用科技讓商場更現代化。",score:5,risk:8,type:"ok",fb:"科技可以加分，但如果造成強迫下載或干擾動線，可能變成反轉品質。"}
   ]},
-  {caseName:"第三關｜北車城市客廳", title:"3-2 把願景轉成指標", type:"checklist", prompt:"請勾選最適合用來檢查『北車城市客廳』是否真的有品質的指標。", concept:"城市客廳不是口號，而是一組可檢查的品質標準與指標。沒有指標，品質就只會停在感覺。", items:[
+  {caseName:"第四關｜北車城市客廳", title:"4-2 把願景轉成指標", type:"checklist", prompt:"請勾選最適合用來檢查『北車城市客廳』是否真的有品質的指標。", concept:"城市客廳不是口號，而是一組可檢查的品質標準與指標。沒有指標，品質就只會停在感覺。", items:[
     {text:"尖峰時段主要通道是否維持順暢",good:true,why:"北車首先是交通樞紐，動線不能失守。"},
     {text:"旅客能否快速找到出口、月台、廁所與服務台",good:true,why:"標示與導引是基本品質。"},
     {text:"廁所、座位、照明、空調與無障礙是否穩定維護",good:true,why:"這些是城市客廳的基本體驗。"},
@@ -38,7 +53,7 @@ function resetFlowchart(){renderStage();}
 function submitFlowchart(){const s=stages[current];const core=flowSelection.filter(x=>s.correct.includes(x));let order=0;core.forEach((x,i)=>{if(x===s.correct[i])order++;});const bad=flowSelection.filter(x=>s.distractors.includes(x)).length;const missed=s.correct.filter(x=>!flowSelection.includes(x));score+=order*5-bad*8-missed.length*4;risk=Math.max(0,Math.min(100,risk+missed.length*7+bad*10-order*3));choices.push({stage:s.title,choice:`順序命中 ${order}/${s.correct.length}`,feedback:'流程圖能讓品質檢查點提前進入專案流程。'});document.querySelectorAll('.flow-chip').forEach(x=>x.disabled=true);showFeedback(`<strong>流程圖回饋：</strong>順序命中 ${order}/${s.correct.length}。${missed.length?`<br><strong>漏掉：</strong><ul>${missed.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}<br><strong>建議流程：</strong><div class="mini-flow">${s.correct.map((x,i)=>`<span>${i+1}. ${x}</span>`).join('<b>→</b>')}</div>`);updateScore();}
 function showFeedback(html){const fb=document.getElementById('feedback');fb.innerHTML=html;fb.classList.remove('hidden');document.getElementById('nextBtn').classList.remove('hidden');}
 function nextStage(){current++;current>=stages.length?showResult():renderStage();}
-function showResult(){document.getElementById('game').classList.add('hidden');document.getElementById('result').classList.remove('hidden');document.getElementById('resultSummary').innerHTML=`<p><span class="tag">品質分數 ${score}</span><span class="tag">重工風險 ${risk}%</span></p><h3>三個案例的品質管理重點</h3><div class="principle-list"><div class="principle"><strong>短影音：檢核表</strong>發布前檢查字幕、來源、授權、CTA、平台格式與 AI 查證。</div><div class="principle"><strong>校園活動：流程圖</strong>把品質檢查點放進需求、設計、測試、彩排、執行與回顧。</div><div class="principle"><strong>北車商場：指標化願景</strong>把城市客廳轉成動線、標示、無障礙、多語、清潔、科技服務與公共責任指標。</div><div class="principle"><strong>通則</strong>先定義品質對象，再設定標準與指標，最後選工具管理流程。</div></div><h3>你的選擇紀錄</h3><div class="timeline">${choices.map(c=>`<div><strong>${c.stage}</strong><br>選擇：${c.choice}<br>${c.feedback}</div>`).join('')}</div>`;}
+function showResult(){document.getElementById('game').classList.add('hidden');document.getElementById('result').classList.remove('hidden');document.getElementById('resultSummary').innerHTML=`<p><span class="tag">品質分數 ${score}</span><span class="tag">重工風險 ${risk}%</span></p><h3>四個案例的品質管理重點</h3><div class="principle-list"><div class="principle"><strong>短影音：檢核表</strong>發布前檢查字幕、來源、授權、CTA、平台格式與 AI 查證。</div><div class="principle"><strong>校園活動：流程圖</strong>把品質檢查點放進需求、設計、測試、彩排、執行與回顧。</div><div class="principle"><strong>桃園機場：旅程品質指標</strong>把旅客旅程轉成航班資訊、等待時間、通關行李、導引、清潔安全與動線指標。</div><div class="principle"><strong>北車商場：指標化願景</strong>把城市客廳轉成動線、標示、無障礙、多語、清潔、科技服務與公共責任指標。</div><div class="principle"><strong>通則</strong>先定義品質對象，再設定標準與指標，最後選工具管理流程。</div></div><h3>你的選擇紀錄</h3><div class="timeline">${choices.map(c=>`<div><strong>${c.stage}</strong><br>選擇：${c.choice}<br>${c.feedback}</div>`).join('')}</div>`;}
 function restartGame(){current=0;score=0;risk=50;choices=[];flowSelection=[];document.getElementById('result').classList.add('hidden');document.querySelector('.setup').classList.remove('hidden');}
 function updateScore(){document.getElementById('score').textContent=score;document.getElementById('risk').textContent=risk;}
 function shuffle(a){return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);}
