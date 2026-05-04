@@ -12,24 +12,25 @@
       <div>
         <div class="eyebrow">Project Quality Management × Communication Project</div>
         <h1>規劃品質救援任務</h1>
-        <p class="lead">三個互動案例：短影音用檢核表、校園活動用流程圖、北車商場把城市願景轉成品質指標。</p>
+        <p class="lead">四個互動案例：短影音用檢核表、校園活動用流程圖、桃園機場與北車案例把服務願景轉成品質指標。</p>
       </div>
       <div class="mascot" aria-hidden="true"><div class="face">品</div><div class="bubble">先規劃，少重工！</div></div>
     </section>
     <section class="card setup">
       <h2>任務說明</h2>
-      <p>你將扮演傳播管理與服務品質顧問，完成三個品質規劃任務。每一次選擇都會影響「品質分數」與「重工風險」。</p>
+      <p>你將扮演傳播管理與服務品質顧問，完成四個品質規劃任務。每一次選擇都會影響「品質分數」與「重工風險」。</p>
       <div class="case-grid">
         <div class="case-card"><span class="tag">第一關｜檢核表</span><h3>AI 素養短影音</h3><p>建立發布前品質檢核表。</p></div>
         <div class="case-card"><span class="tag">第二關｜流程圖</span><h3>校園 AI 素養週</h3><p>建立活動品質流程圖。</p></div>
-        <div class="case-card"><span class="tag">第三關｜北車案例</span><h3>北車城市客廳</h3><p>把商場願景轉成品質標準與指標。</p></div>
+        <div class="case-card"><span class="tag">第三關｜機場案例</span><h3>桃園機場服務品質</h3><p>把旅客旅程轉成品質標準與指標。</p></div>
+        <div class="case-card"><span class="tag">第四關｜北車案例</span><h3>北車城市客廳</h3><p>把商場願景轉成品質標準與指標。</p></div>
       </div>
       <button class="primary" onclick="startGame()">開始任務</button>
     </section>
     <section id="game" class="hidden"><div class="topbar card"><div><div class="eyebrow" id="caseLabel">案例</div><h2 id="stageTitle">任務</h2></div><div class="scorebox"><div>品質分數 <strong id="score">0</strong></div><div>重工風險 <strong id="risk">50</strong>%</div></div></div><section class="card"><div id="prompt"></div><div id="options" class="options"></div><div id="feedback" class="feedback hidden"></div><div class="actions"><button id="nextBtn" class="primary hidden" onclick="nextStage()">下一步</button></div></section><section class="card concept"><h3>本步驟學到的品質管理概念</h3><div id="conceptText"></div></section></section>
     <section id="betweenCases" class="hidden card result"><h2>階段完成</h2><div id="caseOneSummary"></div><button class="primary" onclick="continueToCaseTwo()">繼續</button></section>
     <section id="result" class="hidden card result"><h2>任務完成：專案品質規劃總整理</h2><div id="resultSummary"></div><button class="primary" onclick="restartGame()">重新挑戰</button></section>
-    <section class="card teacher"><h2>教師使用方式</h2><ol><li>第一關：內容發布類專案，用檢核表避免漏檢。</li><li>第二關：活動與跨組協作專案，用流程圖找出品質檢查點。</li><li>第三關：北車商場服務品質，把「城市客廳」轉成品質標準與指標。</li></ol></section>
+    <section class="card teacher"><h2>教師使用方式</h2><ol><li>第一關：內容發布類專案，用檢核表避免漏檢。</li><li>第二關：活動與跨組協作專案，用流程圖找出品質檢查點。</li><li>第三關：桃園機場服務品質，把旅客旅程轉成品質標準與指標。</li><li>第四關：北車商場服務品質，把「城市客廳」轉成品質標準與指標。</li></ol></section>
   </main>
   <script src="script_v3.js"></script>
 </body>
