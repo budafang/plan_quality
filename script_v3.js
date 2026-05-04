@@ -1,0 +1,44 @@
+const stages = [
+  {caseName:"第一關｜AI 素養短影音", title:"1-1 發布前檢核表", type:"checklist", prompt:"你的小組要在 7 天內完成一支 AI 素養短影音。請勾選發布前一定要檢查的品質項目。", concept:"內容發布類專案最適合用檢核表，將字幕、來源、授權、CTA、平台格式與 AI 查證等品質底線固定下來。", items:[
+    {text:"主題是否在前 3 秒內清楚出現",good:true,why:"這影響短影音理解與留存。"},
+    {text:"字幕、活動日期與報名連結是否正確",good:true,why:"資訊錯誤會直接造成誤導。"},
+    {text:"AI 產生的研究、數字或案例是否已查證",good:true,why:"AI 時代內容品質一定要檢查可查證性。"},
+    {text:"音樂、圖片、字體是否有授權",good:true,why:"版權是發布前必檢項目。"},
+    {text:"影片比例、長度、封面與 CTA 是否符合平台",good:true,why:"平台適配會影響觸及與轉換。"},
+    {text:"是否一定要做 4K 畫質",good:false,why:"高規格不等於高品質；手機觀看更重視清楚與可理解。"},
+    {text:"每個轉場是否都很炫",good:false,why:"炫技可能降低可讀性，不一定是品質底線。"}
+  ]},
+  {caseName:"第二關｜校園 AI 素養週", title:"2-1 活動品質流程圖", type:"flowchart", prompt:"你要辦一場校園 AI 素養週。請依照品質管理邏輯，安排活動流程的檢查順序。", concept:"活動與跨組協作專案適合用流程圖。流程圖能讓團隊看見品質問題可能發生在哪個階段，並把檢查點提前放入流程。", steps:["確認需求與利害關係人","設定品質標準與指標","設計活動流程與分工","審查內容、AI 使用與版權","測試報名系統與現場動線","活動彩排與風險檢查","正式執行與即時問題回報","活動後數據回收與改善報告"], distractors:["先做最炫主視覺","活動後才決定成功指標","出問題再補流程"], correct:["確認需求與利害關係人","設定品質標準與指標","設計活動流程與分工","審查內容、AI 使用與版權","測試報名系統與現場動線","活動彩排與風險檢查","正式執行與即時問題回報","活動後數據回收與改善報告"]},
+  {caseName:"第三關｜北車城市客廳", title:"3-1 北車商場品質規劃", type:"quiz", prompt:"新光三越接手台北車站商場後，希望打造『城市客廳』。你是品質規劃顧問，第一步最應該怎麼做？", concept:"北車案例能讓學生理解：品質不是把商場變高級，而是讓通勤、轉乘、購物、旅行等不同使用者，在複雜場域中感到清楚、順暢、安心，並在基本需求被滿足後感受到特色與驚喜。", options:[
+    {title:"先規劃高端品牌與大型藝術裝置",desc:"讓北車變得更像百貨公司。",score:-8,risk:20,type:"bad",fb:"這太快進入魅力品質與形象設計，忽略北車作為交通樞紐的基本品質。"},
+    {title:"先盤點使用者與品質需求",desc:"通勤族、旅客、外國觀光客、店家、台鐵、新光三越各自需要什麼。",score:28,risk:-20,type:"good",fb:"正確。規劃品質要先理解利害關係人與使用情境，再把願景轉成品質標準。"},
+    {title:"只用營收與來客數判斷品質",desc:"商場賺錢就代表品質好。",score:-5,risk:18,type:"bad",fb:"營收重要，但北車是公共交通樞紐，也要看動線、標示、安全、無障礙與公共服務品質。"},
+    {title:"先導入 App 與會員推薦",desc:"用科技讓商場更現代化。",score:5,risk:8,type:"ok",fb:"科技可以加分，但如果造成強迫下載或干擾動線，可能變成反轉品質。"}
+  ]},
+  {caseName:"第三關｜北車城市客廳", title:"3-2 把願景轉成指標", type:"checklist", prompt:"請勾選最適合用來檢查『北車城市客廳』是否真的有品質的指標。", concept:"城市客廳不是口號，而是一組可檢查的品質標準與指標。沒有指標，品質就只會停在感覺。", items:[
+    {text:"尖峰時段主要通道是否維持順暢",good:true,why:"北車首先是交通樞紐，動線不能失守。"},
+    {text:"旅客能否快速找到出口、月台、廁所與服務台",good:true,why:"標示與導引是基本品質。"},
+    {text:"廁所、座位、照明、空調與無障礙是否穩定維護",good:true,why:"這些是城市客廳的基本體驗。"},
+    {text:"多語資訊是否能協助外國旅客完成轉乘與消費",good:true,why:"北車具有城市門戶與觀光節點角色。"},
+    {text:"會員 App 是否降低等待與找路成本，而不是增加負擔",good:true,why:"科技品質要看是否降低痛點，而不是只看有沒有導入。"},
+    {text:"招商品牌是否越高端越好",good:false,why:"高端化不一定符合通勤族與旅客的真實需求。"},
+    {text:"大型裝置藝術是否越多越好",good:false,why:"魅力品質不能干擾動線與基本服務。"}
+  ]}
+];
+let current=0,score=0,risk=50,choices=[],flowSelection=[];
+function startGame(){document.querySelector('.setup').classList.add('hidden');document.getElementById('result').classList.add('hidden');document.getElementById('game').classList.remove('hidden');renderStage();}
+function renderStage(){const s=stages[current];document.getElementById('caseLabel').textContent=s.caseName;document.getElementById('stageTitle').textContent=s.title;document.getElementById('prompt').innerHTML=`<h2>${s.prompt}</h2>`;document.getElementById('conceptText').innerHTML=`<p>${s.concept}</p>`;document.getElementById('feedback').classList.add('hidden');document.getElementById('nextBtn').classList.add('hidden');const c=document.getElementById('options');c.innerHTML='';c.className=s.type==='quiz'?'options':'activity-area';if(s.type==='checklist')renderChecklist(s,c);else if(s.type==='flowchart')renderFlowchart(s,c);else renderQuiz(s,c);updateScore();}
+function renderQuiz(s,c){s.options.forEach((o,i)=>{const b=document.createElement('button');b.className='option';b.innerHTML=`<h4>${o.title}</h4><p>${o.desc}</p>`;b.onclick=()=>selectOption(i);c.appendChild(b);});}
+function selectOption(i){const s=stages[current],o=s.options[i];score+=o.score;risk=Math.max(0,Math.min(100,risk+o.risk));choices.push({stage:s.title,choice:o.title,feedback:o.fb});document.querySelectorAll('.option').forEach((el,j)=>{el.disabled=true;if(i===j)el.classList.add('selected',o.type)});showFeedback(`<strong>回饋：</strong>${o.fb}`);updateScore();}
+function renderChecklist(s,c){c.innerHTML='<div class="tool-note"><strong>工具任務：建立品質檢核表</strong><br>請選出真正會影響品質的檢查點。</div>';s.items.forEach((it,i)=>{const l=document.createElement('label');l.className='check-item';l.innerHTML=`<input type="checkbox" value="${i}"><span>${it.text}</span>`;c.appendChild(l);});const b=document.createElement('button');b.className='primary';b.textContent='送出檢核表';b.onclick=submitChecklist;c.appendChild(b);}
+function submitChecklist(){const s=stages[current];const checked=[...document.querySelectorAll('.check-item input:checked')].map(x=>+x.value);let correct=0,missed=[],over=[];s.items.forEach((it,i)=>{if(it.good&&checked.includes(i))correct++;if(it.good&&!checked.includes(i))missed.push(it);if(!it.good&&checked.includes(i))over.push(it);});const total=s.items.filter(x=>x.good).length;score+=correct*6-missed.length*5-over.length*4;risk=Math.max(0,Math.min(100,risk+missed.length*8+over.length*4-correct*3));choices.push({stage:s.title,choice:`命中 ${correct}/${total}`,feedback:'檢核表能把品質底線固定下來。'});document.querySelectorAll('.check-item input').forEach(x=>x.disabled=true);showFeedback(`<strong>檢核表回饋：</strong>你命中了 ${correct}/${total} 個必要檢查點。${missed.length?`<br><strong>漏掉：</strong><ul>${missed.map(i=>`<li>${i.text}：${i.why}</li>`).join('')}</ul>`:''}${over.length?`<br><strong>不一定是品質底線：</strong><ul>${over.map(i=>`<li>${i.text}：${i.why}</li>`).join('')}</ul>`:''}`);updateScore();}
+function renderFlowchart(s,c){flowSelection=[];c.innerHTML='<div class="tool-note"><strong>工具任務：建立品質流程圖</strong><br>請依順序點擊流程步驟。</div><div id="flowBoard" class="flow-board"><div class="empty-flow">尚未選擇步驟</div></div>';const pool=document.createElement('div');pool.className='flow-pool';shuffle([...s.steps,...s.distractors]).forEach(step=>{const b=document.createElement('button');b.className='flow-chip';b.textContent=step;b.onclick=()=>{flowSelection.push(step);b.disabled=true;renderFlowBoard();};pool.appendChild(b);});c.appendChild(pool);const a=document.createElement('div');a.className='flow-actions';a.innerHTML='<button class="secondary" onclick="resetFlowchart()">重設流程</button> <button class="primary" onclick="submitFlowchart()">送出流程圖</button>';c.appendChild(a);}
+function renderFlowBoard(){const b=document.getElementById('flowBoard');b.innerHTML=flowSelection.length?flowSelection.map((x,i)=>`<div class="flow-step"><span>${i+1}</span>${x}</div>`).join('<div class="flow-arrow">↓</div>'):'<div class="empty-flow">尚未選擇步驟</div>';}
+function resetFlowchart(){renderStage();}
+function submitFlowchart(){const s=stages[current];const core=flowSelection.filter(x=>s.correct.includes(x));let order=0;core.forEach((x,i)=>{if(x===s.correct[i])order++;});const bad=flowSelection.filter(x=>s.distractors.includes(x)).length;const missed=s.correct.filter(x=>!flowSelection.includes(x));score+=order*5-bad*8-missed.length*4;risk=Math.max(0,Math.min(100,risk+missed.length*7+bad*10-order*3));choices.push({stage:s.title,choice:`順序命中 ${order}/${s.correct.length}`,feedback:'流程圖能讓品質檢查點提前進入專案流程。'});document.querySelectorAll('.flow-chip').forEach(x=>x.disabled=true);showFeedback(`<strong>流程圖回饋：</strong>順序命中 ${order}/${s.correct.length}。${missed.length?`<br><strong>漏掉：</strong><ul>${missed.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}<br><strong>建議流程：</strong><div class="mini-flow">${s.correct.map((x,i)=>`<span>${i+1}. ${x}</span>`).join('<b>→</b>')}</div>`);updateScore();}
+function showFeedback(html){const fb=document.getElementById('feedback');fb.innerHTML=html;fb.classList.remove('hidden');document.getElementById('nextBtn').classList.remove('hidden');}
+function nextStage(){current++;current>=stages.length?showResult():renderStage();}
+function showResult(){document.getElementById('game').classList.add('hidden');document.getElementById('result').classList.remove('hidden');document.getElementById('resultSummary').innerHTML=`<p><span class="tag">品質分數 ${score}</span><span class="tag">重工風險 ${risk}%</span></p><h3>三個案例的品質管理重點</h3><div class="principle-list"><div class="principle"><strong>短影音：檢核表</strong>發布前檢查字幕、來源、授權、CTA、平台格式與 AI 查證。</div><div class="principle"><strong>校園活動：流程圖</strong>把品質檢查點放進需求、設計、測試、彩排、執行與回顧。</div><div class="principle"><strong>北車商場：指標化願景</strong>把城市客廳轉成動線、標示、無障礙、多語、清潔、科技服務與公共責任指標。</div><div class="principle"><strong>通則</strong>先定義品質對象，再設定標準與指標，最後選工具管理流程。</div></div><h3>你的選擇紀錄</h3><div class="timeline">${choices.map(c=>`<div><strong>${c.stage}</strong><br>選擇：${c.choice}<br>${c.feedback}</div>`).join('')}</div>`;}
+function restartGame(){current=0;score=0;risk=50;choices=[];flowSelection=[];document.getElementById('result').classList.add('hidden');document.querySelector('.setup').classList.remove('hidden');}
+function updateScore(){document.getElementById('score').textContent=score;document.getElementById('risk').textContent=risk;}
+function shuffle(a){return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);}
